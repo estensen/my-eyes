@@ -7,6 +7,10 @@ html {
     min-height: 100vh;
 }
 
+body {
+    background-color: #E0E0E0;
+}
+
 .main-container {
     margin: auto;
     width: 80%;
@@ -32,34 +36,45 @@ html {
 }
 
 #logo-wrapper {
-    margin-top: 1em;
+    margin-top: 2em;
     margin-bottom: 1em;
 }
 
 #reading-speed-title {
     text-align: center;
     font-size: 2em;
+    margin-top: 1em;
     margin-bottom: 0.5em;
     font-weight: 600;
 }
 
 #audio-controls {
     margin-top: 2em;
-    padding-bottom: 2em;
 }
 
 #imgForm {
     text-align: center;
-    padding-bottom: 2em;
 }
 
-#button-wrapper {
-    height: 35%;
-    width: 100%;
-    margin: auto;
+#audio-controls-wrapper {
+    overflow: hidden;
     border-radius: 20px;
     background-color: lightgray;
     padding-bottom: 2em;
+    margin-bottom: 2em;
+}
+
+.test {
+
+}
+
+#button-wrapper {
+    /*overflow: hidden;*/
+    /*width: 100%;*/
+    /*margin: auto;*/
+    /*border-radius: 20px;*/
+    /*background-color: lightgray;*/
+    /*padding-bottom: 2em;*/
 }
 
 #uploadButton {
@@ -80,7 +95,16 @@ html {
 #logo-text-pic {
     width: 70%;
     margin: 0px;
+    padding-left: 1em;
     /*max-height: 2em;*/
+}
+
+#listen-to-audio {
+    text-align: center;
+    font-weight: 600;
+    font-size: 2.5em;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
 }
 
 @font-face{
