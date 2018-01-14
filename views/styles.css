@@ -12,6 +12,20 @@ body {
     font-family: 'OpenDyslexic-Regular';
 }
 
+/*btn:active {*/
+    /*background-color: black*/
+/*}*/
+
+/*btn:focus {*/
+    /*background-color: black;*/
+/*}*/
+
+.active {
+    background-color: rgb(242, 242, 242) !important;
+    border-color: rgb(46, 74, 146);
+    color: rgb(46, 74, 146) !important;
+}
+
 .main-container {
     margin: auto;
     width: 80%;
