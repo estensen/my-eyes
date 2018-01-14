@@ -17,21 +17,22 @@
 
         <div id="logo-wrapper" class="col-xs-12 col-md-6 col-md-offset-3">
             <p style="text-align: center;">
-                <img id="logo-pic" class="" src="res/logo.png">
-                <img id="logo-text-pic" class="" src="res/logo-text.png">
+                <img id="logo-pic" class="" src="res/full-logo.png">
+                <!--<img id="logo-text-pic" class="" src="res/logo-text.png">-->
             </p>
         </div>
 
         <div id="description" class="col-xs-6">
-            <p class="col-md-offset-3 col-md-6">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                deserunt mollit anim id est laborum."</p>
+            <p class="col-md-offset-3 col-md-6">
+                My Eyes assists users with dyslexia by reading text out loud from images taken.
+                Just take a picture of your text and press play to listen.
+                </p>
         </div>
 
         <div class="col-xs-12 col-md-6 col-md-offset-3">
             <form id="imgForm" enctype="multipart/form-data" action="/upload" method="POST">
                 <input id="capture-btn" name="file_input" type="file" accept="image/*" capture="camera" style="visibility: hidden;"/>
-                <img id="uploadButton" src="res/take-a-picture-light.png" onclick="daisy()" width="600px" height="auto">
+                <img id="uploadButton" src="res/new-take-a-picture.png" onclick="daisy()" width="600px" height="auto">
             </form>
         </div>
 
