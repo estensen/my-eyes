@@ -1,0 +1,72 @@
+* {
+    padding: 0em;
+    margin: 0em;
+}
+
+html {
+    min-height: 100vh;
+}
+
+.main-container {
+    margin: auto;
+    width: 80%;
+    width-min: 600px;
+}
+
+#audio {
+    /*width: 100%;*/
+    /*width-min: 600px;*/
+    /*visibility: hidden;*/
+}
+
+#capture-btn {
+    /*background-image: url('res/take-a-picture.png');*/
+    /*width: 20em;*/
+    /*cursor: pointer;*/
+    /*border: none;*/
+}
+
+#logo {
+    width: 100%;
+    max-width: 100%;
+}
+
+#reading-speed-title {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+}
+
+#audio-controls {
+    margin-top: 2em;
+    padding-bottom: 2em;
+}
+
+#imgForm {
+    text-align: center;
+    padding-bottom: 2em;
+}
+
+#button-wrapper {
+    height: 35%;
+    width: 100%;
+    margin: auto;
+    border-radius: 20px;
+    background-color: lightgray;
+    padding-bottom: 2em;
+}
+
+#uploadButton {
+    max-width: 100%;
+}
+
+#description {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+@font-face{
+    font-family: "OpenDyslexic-Regular";
+    src: url("res/OpenDyslexic-Regular.otf") format("opentype");
+}
