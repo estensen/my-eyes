@@ -19,7 +19,9 @@ var storage = multer.diskStorage({
     });
   }
 });
-var upload = multer({ storage: storage });
+var upload = multer({ storage: storage,
+    limits: { fileSize: 1024 * 1024 * 50}
+});
 
 const app = express();
 
