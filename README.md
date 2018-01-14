@@ -2,13 +2,23 @@
 
 Helping dyslectics read by using vision and text-to-speech.
 
+## Mission Statement
+
+Dyslexia is a reading disability that affects 5% of the population.  Individuals with dyslexia have difficulty decoding written word with speed and accuracy.  To help those afflicted with dyslexia, many schools in BC provide additional reading classes.  But even with reading strategies, it can take quite a bit of concentration and effort to comprehend text.
+
+Listening to an audio book is more convenient than reading a physical one.  There are text-to-speech services which can read off digital text on your tablet or computer.  However, there aren't any easily accessible services which offer reading off physical text.
+
+Our mission was to provide an easily accessible service that could read off physical text.  Our MOBILE app at 104.131.142.126:3000 or eye-speak.org allows you to take a picture of any text and play it back.  The site's UI was designed for those with dyslexia in mind.  The site fonts and color scheme were purposely chosen to be as easily read as possible.
+
+This site attempts to provide an easy free service for those with reading disabilities.
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Installing
 
-Create a file called '.env' and a folder called 'uploads' in the root folder 
+Create a file called '.env' and a folder called 'uploads' in the root folder
 
 Append API keys from [IBM Watson](https://www.ibm.com/watson/services/text-to-speech/)
 
