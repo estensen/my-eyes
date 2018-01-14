@@ -1,5 +1,4 @@
-$('#form').submit(function(e){
-    e.preventDefault();
+const submitForm = () => {
     var formData = new FormData();
     var fileField = document.querySelector("input[type='file']");
 
@@ -13,5 +12,11 @@ $('#form').submit(function(e){
     .catch(error => console.log(error))
     .then(response => {
         $("#audio").attr("src", "/audio/" + response.audio)
+    });
+}
+
+$("document").ready(function(){
+    $("#file_input").change(function() {
+        submitForm();
     });
 });
