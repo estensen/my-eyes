@@ -7,7 +7,7 @@ const fast = () =>   {  highlighted = key_fast; setAudioPlayback(1.5); }
 
 function setAudioPlayback(rate) {
     console.log(rate);
-    const audio = document.getElementById("audio");
+    const audio = document.getElementById("audio-controls");
     audio.playbackRate = rate;
 
     document.getElementById("img_slow").src = "imgs/slow.png";
