@@ -1,0 +1,27 @@
+{
+  "name": "my-eyes",
+  "main": "index.js",
+  "description": "",
+  "version": "0.1.1",
+  "private": false,
+  "engines": {
+    "node": "6.*"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IBM-Bluemix/get-started-node"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.x",
+    "cfenv": "^1.0.x",
+    "cloudant": "^1.7.x",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.x",
+    "watson-developer-cloud": "^3.0.3",
+    "web-audio-api": "^0.2.2"
+  },
+  "author": "My Eyes corp"
+}

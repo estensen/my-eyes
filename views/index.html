@@ -1,0 +1,23 @@
+<html>
+    <head>
+    <script>
+        function get_audio() {
+            var text = document.getElementById("text").value;
+            document.getElementById("audio").src = "/audio?text=" + text
+        }
+    </script>
+    </head>
+    <body>
+        <!-- Simple audio playback -->
+        <form id="frm1" action="/action_page.php">
+            Text-to-speech: <input id="text" type="text" name="text"><br>
+            <input type="button" onclick="get_audio()" value="Submit">
+        </form>
+        <audio
+            id="audio"
+            src=""
+            autoplay>
+            Your browser does not support the <code>audio</code> element.
+        </audio>
+    </body>
+</html>
