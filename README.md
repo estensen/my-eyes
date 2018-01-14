@@ -1,3 +1,5 @@
+<img width="250" height="250" src="https://user-images.githubusercontent.com/9142800/34920456-d6fa338c-f927-11e7-92b1-2a77e79cab3e.png">
+
 # My Eyes
 
 Helping dyslectics read by using vision and text-to-speech.
