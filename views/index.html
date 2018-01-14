@@ -6,26 +6,54 @@
         <meta name="mobile-web-app-capable" content="yes">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../styles.css" rel="stylesheet">
     </head>
     <body>
-        <form id="form" enctype="multipart/form-data" action="/upload" method="POST">
-            <input name="file_input" type="file" accept="image/*" capture="camera" />
-            <input type="submit" value="submit">
+
+    <div class="main-container">
+
+        <!--<div>-->
+            <!--<img src="sampleText.png">-->
+            <!--<img src="sampleText.png">-->
+        <!--</div>-->
+
+        <div id="description" class="col-xs-12">
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                deserunt mollit anim id est laborum."</p>
+        </div>
+
+        <form id="imgForm" enctype="multipart/form-data" action="/upload" method="POST">
+            <input id="capture-btn" name="file_input" type="file" accept="image/*" capture="camera" style="visibility: hidden;" onchange="/*submit*/"/>
+            <img id="uploadButton" src="../res/take-a-picture-light.png" onclick="daisy()" width="600px" height="auto">
         </form>
-        <audio
-                id="audio"
-                src=""
-                autoplay>
+
+        <audio controls id="audio-controls" class="col-xs-12"
+               id="audio"
+               src=""
+               autoplay>
             Your browser does not support the <code>audio</code> element.
         </audio>
 
-        <div id="container">
-            <video autoplay></video>
-            <button>Take Picture</button>
-            <canvas></canvas>
+        <div id="reading-speed-title" class="col-xs-12">
+            <p>Audio Speed</p>
         </div>
+
+        <div id="button-wrapper">
+            <button class="col-xs-2 col-xs-offset-1 btn btn-primary">Slow</button>
+            <button class="col-xs-4 col-xs-offset-1 btn btn-primary">Normal</button>
+            <button class="col-xs-2 col-xs-offset-1 btn btn-primary">Fast</button>
+        </div>
+    </div>
 
         <script src="../webcam.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+        function daisy(){
+            //$('#imgForm').submit();
+            $("#capture-btn").click();
+            $('#audio').style.visibility = "visible";
+        }
+    </script>
     </body>
 </html>
