@@ -13,11 +13,9 @@ var button = document.querySelector('button');
 button.onclick = function () {
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
-    //canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-    var img1 = new Image(); // HTML5 Constructor
-    img1.src = '../sampleText.png';
-    canvas.getContext('2d').drawImage(img1, 0, 0, canvas.width, canvas.height);
-    post('/', {value: img});
+    canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+    var img = getImg(canvas.toDataURL());
+    post_image(img);
 };
 
 var constraints = {
@@ -34,34 +32,58 @@ function handleError(error) {
     console.log('navigator.getUserMedia error: ', error);
 }
 
-navigator.mediaDevices.getUserMedia(constraints)
-    .then(handleSuccess)
-    .catch(handleError);
-
 function getImg(dataURL){
-      return img.replace(/^data:image\/\w+;base64,/, "");
+      return dataURL.replace(/^data:image\/\w+;base64,/, "");
 }
 
-function post(path, params, method) {
-    method = method || "post"; // Set method to post by default if not specified.
+$('#form').submit(function(e){
+    e.preventDefault();
+    var formData = new FormData();
+    var fileField = document.querySelector("input[type='file']");
 
-    // The rest of this code assumes you are not using a library.
-    // It can be made less wordy if you use one.
-    var form = document.createElement("form");
-    form.setAttribute("method", method);
-    form.setAttribute("action", path);
+    formData.append("file_input", fileField.files[0]);
 
-    for(var key in params) {
-        if(params.hasOwnProperty(key)) {
-            var hiddenField = document.createElement("input");
-            hiddenField.setAttribute("type", "hidden");
-            hiddenField.setAttribute("name", key);
-            hiddenField.setAttribute("value", params[key]);
+    fetch("/upload", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .catch(error => console.log(error))
+    .then(response => {
+        $("#audio").attr("src", "/audio/" + response.audio)
+    });
+});
 
-            form.appendChild(hiddenField);
-        }
-    }
+function post_image(image) {
+    $.ajax({
+        url: "/image",
+        type: "POST",
+        data: {
+            img: image
+        },
+        cache: false,
+        timeout: 5000,
+        complete: function() {
+            //called when complete
+            console.log('process complete');
+        },
 
-    document.body.appendChild(form);
-    form.submit();
+        success: function(data) {
+            $("#audio").attr("src", "/audio/" + data)
+            console.log(data);
+            console.log('process sucess');
+        },
+
+        error: function() {
+            console.log('process error');
+        },
+    });
 }
+
+// Get access to the camera!
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    navigator.mediaDevices.getUserMedia(constraints)
+        .then(handleSuccess)
+        .catch(handleError);
+}
+

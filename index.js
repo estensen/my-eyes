@@ -1,21 +1,34 @@
 require('dotenv').load();
+const crypto = require("crypto");
+const mime = require("mime");
 const express = require("express");
-const app = express();
 const cfenv = require("cfenv");
 const bodyParser = require('body-parser')
 const vision = require('@google-cloud/vision');
 const TextToSpeechV1 = require('watson-developer-cloud/text-to-speech/v1');
 const fs = require('fs');
+const multer  = require('multer')
+
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './uploads/')
+  },
+  filename: function (req, file, cb) {
+    crypto.pseudoRandomBytes(16, function (err, raw) {
+      cb(null, raw.toString('hex') + Date.now() + '.' + mime.extension(file.mimetype));
+    });
+  }
+});
+var upload = multer({ storage: storage });
+
+const app = express();
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
-// parse application/json
-app.use(bodyParser.json())
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
 // Creates a client
 const client = new vision.ImageAnnotatorClient();
-
-const fileName = './sampleText.png';
 
 // Performs text detection on the local file
 const convert_image_to_text = (fileName, res) => {
@@ -56,14 +69,23 @@ const text_params = (text_to_speech) => {
     accept: 'audio/mp3'
 }};
 
-app.get('/audio/:w', function(req, res, next) {
-    const data = req.params.w //.replace(/^data:image\/\w+;base64,/, '');
+app.post('/upload', upload.single('file_input'), function (req, res, next) {
+    console.log(req.file.filename);
+    res.json({'audio': req.file.filename});
+})
+
+
+app.post('/image', function(req, res, next) {
+    console.log(req);
+    const data = req.body.img
     const fileName = makeid();
-    var img = new Buffer(data, 'base64');
-    fs.writeFile(fileName, img, 'base64', function(err){
-        console.log(err);
-        convert_image_to_text(fileName, res);
+    fs.writeFile(fileName, data, 'base64', function(err){
+        res.end(fileName)
     });
+});
+
+app.get('/audio/:img', function(req, res, next) {
+    convert_image_to_text("uploads/"+req.params.img, res);
 });
 
 app.use(express.static(__dirname + '/views'));
