@@ -49,16 +49,6 @@ const convert_image_to_text = (fileName, res) => {
         });
 }
 
-const makeid = () => {
-    var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-    for (var i = 0; i < 5; i++)
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-    return text;
-}
-
 const text_to_speech = new TextToSpeechV1({
     username: process.env.USERNAME,
     password: process.env.PASSWORD
@@ -75,16 +65,6 @@ app.post('/upload', upload.single('file_input'), function (req, res, next) {
     console.log(req.file.filename);
     res.json({'audio': req.file.filename});
 })
-
-
-app.post('/image', function(req, res, next) {
-    console.log(req);
-    const data = req.body.img
-    const fileName = makeid();
-    fs.writeFile(fileName, data, 'base64', function(err){
-        res.end(fileName)
-    });
-});
 
 app.get('/audio/:img', function(req, res, next) {
     convert_image_to_text("uploads/"+req.params.img, res);
