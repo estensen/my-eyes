@@ -6,10 +6,10 @@
         <meta name="mobile-web-app-capable" content="yes">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-        <link href="styles.css" rel="stylesheet">
 
         <script src="webcam.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="styles.css" rel="stylesheet">
     </head>
     <body>
     <div class="main-container">
@@ -32,6 +32,10 @@
                 <input id="capture-btn" name="file_input" type="file" accept="image/*" capture="camera" style="visibility: hidden;"/>
                 <img id="uploadButton" src="res/take-a-picture-light.png" onclick="daisy()" width="600px" height="auto">
             </form>
+        </div>
+
+        <div id="listen-to-audio" class="col-xs-12 col-md-6 col-md-offset-3" style="">
+            <p>Listen to Audio</p>
         </div>
 
         <div id="audio-controls-wrapper" class="col-xs-12 col-md-6 col-md-offset-3">
