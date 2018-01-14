@@ -94,3 +94,6 @@ typings/
 uploads/*
 
 # End of https://www.gitignore.io/api/git,node,macos
+
+# Jet Brains
+./idea*

@@ -11,12 +11,17 @@ const submitForm = () => {
     .then(response => response.json())
     .catch(error => console.log(error))
     .then(response => {
-        $("#audio").attr("src", "/audio/" + response.audio)
+        $("#audio-controls").attr("src", "/audio/" + response.audio)
     });
 }
 
+const daisy = () => {
+    //$('#imgForm').submit();
+    $("#capture-btn").click();
+}
+
 $("document").ready(function(){
-    $("#file_input").change(function() {
+    $("#capture-btn").change(function() {
         submitForm();
     });
 });
