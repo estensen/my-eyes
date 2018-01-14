@@ -31,6 +31,11 @@ html {
     max-width: 100%;
 }
 
+#logo-wrapper {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
 #reading-speed-title {
     text-align: center;
     font-size: 2em;
@@ -58,12 +63,24 @@ html {
 }
 
 #uploadButton {
-    max-width: 100%;
+    width: 100%;
 }
 
 #description {
-    font-size: 16px;
+    width: 100%;
     font-weight: 600;
+}
+
+#logo-pic {
+    width: 20%;
+    margin: 0px;
+    /*max-height: 2em;*/
+}
+
+#logo-text-pic {
+    width: 70%;
+    margin: 0px;
+    /*max-height: 2em;*/
 }
 
 @font-face{
