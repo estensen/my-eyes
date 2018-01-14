@@ -1,8 +1,7 @@
-const submitForm = () => {
+const submitFile = (file) => {
     var formData = new FormData();
-    var fileField = document.querySelector("input[type='file']");
 
-    formData.append("file_input", fileField.files[0]);
+    formData.append("file_input", file);
 
     fetch("/upload", {
         method: "POST",
@@ -21,7 +20,18 @@ const daisy = () => {
 }
 
 $("document").ready(function(){
-    $("#capture-btn").change(function() {
-        submitForm();
+    $("#capture-btn").change(function(e) {
+        const file = e.target.files[0];
+        if (!file) { return; }
+
+        new ImageCompressor(file, {
+            quality: .6,
+            success(result) {
+                submitFile(result);
+            },
+            error(e) {
+                console.log(e.message);
+            },
+        });
     });
 });
