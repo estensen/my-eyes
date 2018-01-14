@@ -58,9 +58,8 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Cloud Vision API](https://cloud.google.com/vision/) - Used to read text from images
+* [Watson Text to Speech](https://maven.apache.org/) - Used to read text from images to speech
 
 ## Contributing
 
