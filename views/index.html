@@ -6,9 +6,9 @@
         <meta name="mobile-web-app-capable" content="yes">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../styles.css" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
 
-        <script src="../webcam.js"></script>
+        <script src="webcam.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
@@ -16,8 +16,8 @@
 
         <div id="logo-wrapper" class="">
             <p style="text-align: center;">
-                <img id="logo-pic" class="" src="../res/logo.png">
-                <img id="logo-text-pic" class="" src="../res/logo-text.png">
+                <img id="logo-pic" class="" src="res/logo.png">
+                <img id="logo-text-pic" class="" src="res/logo-text.png">
             </p>
         </div>
 
@@ -29,7 +29,7 @@
 
         <form id="imgForm" enctype="multipart/form-data" action="/upload" method="POST">
             <input id="capture-btn" name="file_input" type="file" accept="image/*" capture="camera" style="visibility: hidden;"/>
-            <img id="uploadButton" src="../res/take-a-picture-light.png" onclick="daisy()" width="600px" height="auto">
+            <img id="uploadButton" src="res/take-a-picture-light.png" onclick="daisy()" width="600px" height="auto">
         </form>
 
         <audio controls id="audio-controls" class="col-xs-12"
