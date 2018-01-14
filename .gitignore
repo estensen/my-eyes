@@ -97,3 +97,4 @@ uploads/*
 
 # Jet Brains
 ./idea*
+./idea/workspace.xml
