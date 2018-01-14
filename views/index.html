@@ -14,40 +14,45 @@
     <body>
     <div class="main-container">
 
-        <div id="logo-wrapper" class="">
+        <div id="logo-wrapper" class="col-xs-12 col-md-6 col-md-offset-3">
             <p style="text-align: center;">
                 <img id="logo-pic" class="" src="res/logo.png">
                 <img id="logo-text-pic" class="" src="res/logo-text.png">
             </p>
         </div>
 
-        <div id="description" class="col-xs-12">
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+        <div id="description" class="col-xs-6">
+            <p class="col-md-offset-3 col-md-6">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
                 deserunt mollit anim id est laborum."</p>
         </div>
 
-        <form id="imgForm" enctype="multipart/form-data" action="/upload" method="POST">
-            <input id="capture-btn" name="file_input" type="file" accept="image/*" capture="camera" style="visibility: hidden;"/>
-            <img id="uploadButton" src="res/take-a-picture-light.png" onclick="daisy()" width="600px" height="auto">
-        </form>
-
-        <audio controls id="audio-controls" class="col-xs-12"
-               id="audio"
-               src=""
-               autoplay>
-            Your browser does not support the <code>audio</code> element.
-        </audio>
-
-        <div id="reading-speed-title" class="col-xs-12">
-            <p>Audio Speed</p>
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+            <form id="imgForm" enctype="multipart/form-data" action="/upload" method="POST">
+                <input id="capture-btn" name="file_input" type="file" accept="image/*" capture="camera" style="visibility: hidden;"/>
+                <img id="uploadButton" src="res/take-a-picture-light.png" onclick="daisy()" width="600px" height="auto">
+            </form>
         </div>
 
-        <div id="button-wrapper">
-            <button class="col-xs-2 col-xs-offset-1 btn btn-primary">Slow</button>
-            <button class="col-xs-4 col-xs-offset-1 btn btn-primary">Normal</button>
-            <button class="col-xs-2 col-xs-offset-1 btn btn-primary">Fast</button>
+        <div id="audio-controls-wrapper" class="col-xs-12 col-md-6 col-md-offset-3">
+            <audio controls id="audio-controls" class="col-xs-12"
+                   id="audio"
+                   src=""
+                   autoplay>
+                Your browser does not support the <code>audio</code> element.
+            </audio>
+
+            <div id="reading-speed-title" class="col-xs-12">
+                <p>Audio Speed</p>
+            </div>
+
+            <div id="button-wrapper" class="col-xs-12">
+                <button class="col-xs-3 btn btn-primary">Slow</button>
+                <button class="col-xs-4 col-xs-offset-1 btn btn-primary">Normal</button>
+                <button class="col-xs-3 col-xs-offset-1 btn btn-primary">Fast</button>
+            </div>
         </div>
+
     </div>
     </body>
 </html>
