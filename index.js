@@ -5,6 +5,7 @@ const cfenv = require("cfenv");
 const bodyParser = require('body-parser')
 const vision = require('@google-cloud/vision');
 const TextToSpeechV1 = require('watson-developer-cloud/text-to-speech/v1');
+const fs = require('fs');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -33,6 +34,16 @@ const convert_image_to_text = (fileName, res) => {
         });
 }
 
+const makeid = () => {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 5; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
+}
+
 const text_to_speech = new TextToSpeechV1({
     username: process.env.USERNAME,
     password: process.env.PASSWORD
@@ -45,8 +56,14 @@ const text_params = (text_to_speech) => {
     accept: 'audio/mp3'
 }};
 
-app.get('/audio', function(req, res, next) {
-    convert_image_to_text(fileName, res);
+app.get('/audio/:w', function(req, res, next) {
+    const data = req.params.w //.replace(/^data:image\/\w+;base64,/, '');
+    const fileName = makeid();
+    var img = new Buffer(data, 'base64');
+    fs.writeFile(fileName, img, 'base64', function(err){
+        console.log(err);
+        convert_image_to_text(fileName, res);
+    });
 });
 
 app.use(express.static(__dirname + '/views'));

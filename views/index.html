@@ -2,17 +2,12 @@
     <head>
     <script>
         function get_audio() {
-            var text = document.getElementById("text").value;
-            document.getElementById("audio").src = "/audio?text=" + text
+            document.getElementById("audio").src = "/audio/" + fileBlob
         }
     </script>
     </head>
     <body>
         <!-- Simple audio playback -->
-        <form id="frm1" action="/action_page.php">
-            Text-to-speech: <input id="text" type="text" name="text"><br>
-            <input type="button" onclick="get_audio()" value="Submit">
-        </form>
         <audio
             id="audio"
             src=""
@@ -27,6 +22,5 @@
         </div>
 
         <script src="../webcam.js"></script>
-
     </body>
 </html>

@@ -13,7 +13,10 @@ var button = document.querySelector('button');
 button.onclick = function () {
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
-    canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+    //canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+    var img1 = new Image(); // HTML5 Constructor
+    img1.src = '../sampleText.png';
+    canvas.getContext('2d').drawImage(img1, 0, 0, canvas.width, canvas.height);
 };
 
 var constraints = {
